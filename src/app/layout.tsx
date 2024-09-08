@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* header navbar idher aa jay gi */}
+      <div className="bg-gray-800 p-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="text-white text-lg font-semibold">
+            <Link href="/">
+              <h1>MyApp</h1>
+            </Link>
+          </div>
+          <div className="space-x-4">
+            <Link href="/">
+              <h1 className="text-white hover:text-gray-300">Home</h1>
+            </Link>
+            <Link href="/about">
+              <h1 className="text-white hover:text-gray-300">About</h1>
+            </Link>
+            <Link href="/products">
+              <h1 className="text-white hover:text-gray-300">Services</h1>
+            </Link>
+            <Link href="/docs">
+              <h1 className="text-white hover:text-gray-300">Contact</h1>
+            </Link>
+          </div>
+        </div>
+      </div>
       <body className={inter.className}>{children}</body>
+      {/* footer idher aa jay ga, baqi sab wase populate ho jay ga */}
     </html>
   );
 }
